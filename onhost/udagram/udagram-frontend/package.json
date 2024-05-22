@@ -7,7 +7,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "deploy": "npm install -f && npm run build && chmod +x bin/deploy.sh && bin/deploy.sh",
+    "deploy": "npm install -f && ng build && chmod +x bin/deploy.sh && bin/deploy.sh",
+    "deploy:window": "set NODE_OPTIONS=--openssl-legacy-provider && npm install -f && ionic build && aws s3 sync --acl public-read ./www s3://hoang-udagram/ && aws s3 sync --acl public-read --cache-control=\"max-age=0, no-cache, no-store, must-revalidate\" \"./www/index.html s3://hoang-udagram//",
     "test": "ng test --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e"
