@@ -26,18 +26,22 @@ jobs:
           name: Install API Dependencies
           command: |
             cd onhost
+            export NODE_OPTIONS=--openssl-legacy-provider
             npm run api:install
       - run:
           name: Front-End Lint
           command: |
+            cd onhost
             npm run frontend:lint
       - run:
           name: Front-End Build
           command: |
+            cd onhost
             npm run frontend:build
       - run:
           name: API Build
           command: |
+            cd onhost
             npm run api:build
   # deploy step will run only after manual approval
   deploy:
