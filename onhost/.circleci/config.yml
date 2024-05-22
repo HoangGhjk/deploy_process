@@ -20,13 +20,11 @@ jobs:
           name: Install Front-End Dependencies
           command: |
             cd onhost
-            export NODE_OPTIONS=--openssl-legacy-provider
             npm run frontend:install
       - run:
           name: Install API Dependencies
           command: |
             cd onhost
-            export NODE_OPTIONS=--openssl-legacy-provider
             npm run api:install
       - run:
           name: Front-End Lint
