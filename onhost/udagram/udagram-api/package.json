@@ -16,7 +16,7 @@
     "clean:window": "rmdir /s www /q",
     "deploy": "npm run build && eb list && eb use udagram-api-dev && eb deploy",
     "deploy:window":"npm run build:window && eb list && eb use udagram-api-dev && eb deploy",
-    "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp -R .elasticbeanstalk www/.elasticbeanstalk && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
+    "build": "npm install . && npm run clean && npx tsc && cp -rf src/config www/config && cp -R .elasticbeanstalk www/.elasticbeanstalk && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
     "build:window": "set NODE_OPTIONS=--openssl-legacy-provider && npm install . && npm run clean:window && npx tsc && xcopy src\\config www\\config && xcopy package.json www && cd www && 7z a Archive.zip && cd ..",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
