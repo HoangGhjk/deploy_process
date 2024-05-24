@@ -1,5 +1,5 @@
-call set_env_fe.bat
 cd udagram-frontend
+call set_env_fe.bat
 rmdir /s node_modules
 del package-log.json
 rmdir /s www
