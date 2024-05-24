@@ -1,0 +1,1 @@
+call psql -h database-1.cvgdqsx1e3df.us-east-1.rds.amazonaws.com -U postgres postgres
