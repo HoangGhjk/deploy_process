@@ -15,7 +15,7 @@
     "clean": "rm -rf www/ || true",
     "clean:window": "rmdir /s www /q || break",
     "configure:env": "eb setenv AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION POSTGRES_USERNAME=$POSTGRES_USERNAME POSTGRES_PASSWORD=$POSTGRES_PASSWORD POSTGRES_DB=$POSTGRES_DB PORT=$PORT POSTGRES_HOST=$POSTGRES_HOST AWS_REGION=$AWS_REGION AWS_PROFILE=$AWS_PROFILE AWS_BUCKET=$AWS_BUCKET URL=$URL JWT_SECRET=$JWT_SECRET --profile default",
-    "deploy": "npm run build && eb list && eb use udagram-api-dev && npm run configure:env && eb deploy",
+    "deploy": "npm run build && eb list && eb use udagram-api-dev && eb deploy",
     "deploy:window":"npm run build:window && eb list && eb use udagram-api-dev && eb deploy",
     "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp -R .elasticbeanstalk www/.elasticbeanstalk && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
     "build:window": "set NODE_OPTIONS=--openssl-legacy-provider && npm install . && npm run clean:window && npx tsc && xcopy src\\config www\\config && xcopy package.json www && cd www && 7z a Archive.zip && cd ..",
